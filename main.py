@@ -17,7 +17,7 @@ def spider():
 	url="http://www.amazon.in/b?ie=UTF8&node=1388921031"
 	source_code= requests.get(url)		
 	plain_text= source_code.text
-	soup = BeautifulSoup(plain_text)
+	soup = BeautifulSoup(plain_text, "lxml")
 	#title=[]
 	for amzn_item_title in soup.findAll('a', {'class':'acs_product-title'}):
 		t = amzn_item_title.string
